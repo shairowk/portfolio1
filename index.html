@@ -775,7 +775,7 @@
                 <p>Ready to transform your business with low-code solutions? Fill out the form below and I'll get back to you with a personalized demo of the tools that can help you achieve your goals.</p>
             </div>
             <div class="contact-form-right">
-                <form id="contactForm" action="mailto:shairowk@gmail.com" method="POST" enctype="text/plain">
+                <form id="contactForm" action="https://formspree.io/f/mvzwwwaa" method="POST">
                     <div>
                         <label for="name">Name *</label>
                         <input type="text" id="name" name="name" required placeholder="Your full name">
@@ -844,29 +844,6 @@
                     });
                 }
             });
-        });
-
-        // Contact form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const phone = formData.get('phone');
-            const email = formData.get('email');
-            const company = formData.get('company');
-            const interest = formData.get('interest');
-            
-            const subject = 'Demo Request from Portfolio';
-            const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nCompany: ${company}\nInterest: ${interest}`;
-            
-            const mailtoLink = `mailto:shairowk@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            window.location.href = mailtoLink;
-            
-            // Reset form
-            contactForm.reset();
         });
     </script>
 </body>
