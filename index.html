@@ -28,6 +28,53 @@
             overflow-x: hidden;
         }
 
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.84);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+
+        .topbar-content {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        .topbar-links {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+        }
+
+        .topbar-link {
+            color: var(--off-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .topbar-link:hover {
+            color: var(--accent);
+        }
+
         .serif {
             font-family: 'Playfair Display', serif;
         }
@@ -35,7 +82,8 @@
         /* Hero Section */
         .hero {
             position: relative;
-            height: 100vh;
+            height: calc(100vh - 70px);
+            padding-top: 70px;
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -493,9 +541,13 @@
 
         /* Contact Form Styles */
         .contact-form {
-            padding: 8rem 2rem;
+            padding: 10rem 2rem 6rem;
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .contact-form[id="contact"] {
+            padding-top: 12rem;
         }
 
         .contact-form h2 {
@@ -609,6 +661,18 @@
     </script>
 </head>
 <body>
+    <header class="topbar">
+        <div class="topbar-content">
+            <div class="topbar-brand serif">Shairow</div>
+            <div class="topbar-links">
+                <a href="#contact" class="topbar-link">Request Demo</a>
+                <a href="mailto:shairowk@gmail.com" class="topbar-link">Email</a>
+                <a href="shairow_resume (1).pdf" download class="topbar-link">Resume</a>
+                <a href="#projects" class="topbar-link">Work</a>
+            </div>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg-text">SHAIROW</div>
@@ -813,7 +877,7 @@
     </script>
 
     <!-- Contact Form Section -->
-    <section class="contact-form fade-in">
+    <section id="contact" class="contact-form fade-in">
         <h2>REQUEST A <span class="accent">DEMO</span></h2>
         <div class="contact-form-content">
             <div class="contact-form-left">
