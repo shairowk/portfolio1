@@ -491,65 +491,79 @@
             }
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
+        /* Contact Form Styles */
+        .contact-form {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .modal-content {
-            background-color: var(--black);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 10% auto;
-            padding: 2rem;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .modal-content h2 {
-            color: var(--accent);
-            margin-bottom: 1.5rem;
+        .contact-form h2 {
+            font-size: clamp(2rem, 4vw, 4rem);
+            font-weight: 700;
             text-align: center;
+            margin-bottom: 4rem;
             font-family: 'Playfair Display', serif;
         }
 
-        .modal-content form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .contact-form .accent {
+            color: var(--accent);
         }
 
-        .modal-content label {
+        .contact-form-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-form-left h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-form-left p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .contact-form-right form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .contact-form-right label {
             font-weight: 500;
             margin-bottom: 0.5rem;
+            display: block;
         }
 
-        .modal-content input,
-        .modal-content select {
+        .contact-form-right input,
+        .contact-form-right select {
             padding: 0.75rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.05);
             color: var(--off-white);
             font-family: 'DM Sans', sans-serif;
+            width: 100%;
         }
 
-        .modal-content input::placeholder {
+        .contact-form-right input::placeholder {
             color: rgba(245, 245, 240, 0.5);
         }
 
-        .modal-content button {
-            margin-top: 1rem;
-            padding: 1rem;
+        .contact-form-right .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .contact-form-right button {
+            grid-column: 1 / -1;
+            padding: 1rem 2rem;
             background: var(--accent);
             color: var(--off-white);
             border: none;
@@ -557,24 +571,30 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-top: 1rem;
         }
 
-        .modal-content button:hover {
+        .contact-form-right button:hover {
             background: transparent;
             border: 2px solid var(--accent);
             transform: translateY(-2px);
         }
 
-        .close {
-            color: var(--off-white);
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        /* Responsive for contact form */
+        @media (max-width: 768px) {
+            .contact-form-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
 
-        .project-card.overlay-visible .project-overlay {
-            opacity: 1;
+            .contact-form-right form {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .contact-form-right .full-width {
+                grid-column: 1;
+            }
         }
     </style>
 
@@ -675,7 +695,6 @@
                     <div class="project-overlay">
                         <h3 class="project-title">Audit Dashboard</h3>
                         <p class="project-description">Real-time monitoring and reporting dashboard built with Firebase and Google Cloud.</p>
-                        <button class="cta-button demo-button">Request Demo</button>
                     </div>
                 </div>
             </div>
@@ -688,7 +707,6 @@
                     <div class="project-overlay">
                         <h3 class="project-title">LMS Dashboard</h3>
                         <p class="project-description">Learning Management System with Google Apps Script and Sheets integration.</p>
-                        <button class="cta-button demo-button">Request Demo</button>
                     </div>
                 </div>
             </div>
@@ -701,7 +719,6 @@
                     <div class="project-overlay">
                         <h3 class="project-title">NHT Dashboard</h3>
                         <p class="project-description">Comprehensive monitoring dashboard with automated reporting capabilities.</p>
-                        <button class="cta-button demo-button">Request Demo</button>
                     </div>
                 </div>
             </div>
@@ -714,7 +731,6 @@
                     <div class="project-overlay">
                         <h3 class="project-title">Email CRM Tool</h3>
                         <p class="project-description">Customer relationship management tool powered by Google Workspace.</p>
-                        <button class="cta-button demo-button">Request Demo</button>
                     </div>
                 </div>
             </div>
@@ -772,47 +788,12 @@
             });
         });
 
-        // Modal functionality
-        const modal = document.getElementById('demoModal');
-        const demoButtons = document.querySelectorAll('.demo-button');
-        const closeBtn = document.querySelector('.close');
-        const demoForm = document.getElementById('demoForm');
-
-        // Open modal
-        demoButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const card = button.closest('.project-card');
-                if (card) {
-                    card.classList.add('overlay-visible');
-                }
-                modal.style.display = 'block';
-            });
-        });
-
-        // Close modal
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.querySelectorAll('.project-card.overlay-visible').forEach(card => {
-                card.classList.remove('overlay-visible');
-            });
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.querySelectorAll('.project-card.overlay-visible').forEach(card => {
-                    card.classList.remove('overlay-visible');
-                });
-            }
-        });
-
-        // Form submission
-        demoForm.addEventListener('submit', (e) => {
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            const formData = new FormData(demoForm);
+            const formData = new FormData(contactForm);
             const name = formData.get('name');
             const phone = formData.get('phone');
             const email = formData.get('email');
@@ -826,48 +807,50 @@
             
             window.location.href = mailtoLink;
             
-            // Close modal after submission
-            modal.style.display = 'none';
-            
-            // Remove overlay visible class
-            document.querySelectorAll('.project-card.overlay-visible').forEach(card => {
-                card.classList.remove('overlay-visible');
-            });
-            
             // Reset form
-            demoForm.reset();
+            contactForm.reset();
         });
     </script>
 
-    <!-- Demo Request Modal -->
-    <div id="demoModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Request a Demo</h2>
-            <form id="demoForm">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required placeholder="Your full name">
-
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
-
-                <label for="email">Email ID</label>
-                <input type="email" id="email" name="email" required placeholder="Your email address">
-
-                <label for="company">Company</label>
-                <input type="text" id="company" name="company" placeholder="Your company name">
-
-                <label for="interest">What are you looking for?</label>
-                <select id="interest" name="interest" required>
-                    <option value="">Select an option</option>
-                    <option value="Audit Dashboard">Audit Dashboard</option>
-                    <option value="LMS Dashboard">LMS Dashboard</option>
-                    <option value="App Script Automation">App Script Automation</option>
-                </select>
-
-                <button type="submit">Submit Request</button>
-            </form>
+    <!-- Contact Form Section -->
+    <section class="contact-form fade-in">
+        <h2>REQUEST A <span class="accent">DEMO</span></h2>
+        <div class="contact-form-content">
+            <div class="contact-form-left">
+                <h3>Let's Build Something Amazing Together</h3>
+                <p>Ready to transform your business with low-code solutions? Fill out the form below and I'll get back to you with a personalized demo of the tools that can help you achieve your goals.</p>
+            </div>
+            <div class="contact-form-right">
+                <form id="contactForm">
+                    <div>
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name">
+                    </div>
+                    <div>
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
+                    </div>
+                    <div>
+                        <label for="email">Email ID *</label>
+                        <input type="email" id="email" name="email" required placeholder="Your email address">
+                    </div>
+                    <div>
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" placeholder="Your company name">
+                    </div>
+                    <div class="full-width">
+                        <label for="interest">What are you looking for? *</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Select an option</option>
+                            <option value="Audit Dashboard">Audit Dashboard</option>
+                            <option value="LMS Dashboard">LMS Dashboard</option>
+                            <option value="App Script Automation">App Script Automation</option>
+                        </select>
+                    </div>
+                    <button type="submit">Submit Request</button>
+                </form>
+            </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>
