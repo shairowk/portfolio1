@@ -490,6 +490,92 @@
                 text-align: center;
             }
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--black);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .modal-content h2 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .modal-content label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-content input,
+        .modal-content select {
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--off-white);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .modal-content input::placeholder {
+            color: rgba(245, 245, 240, 0.5);
+        }
+
+        .modal-content button {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--accent);
+            color: var(--off-white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background: transparent;
+            border: 2px solid var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .close {
+            color: var(--off-white);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--accent);
+        }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -589,6 +675,7 @@
                     <div class="project-overlay">
                         <h3 class="project-title">Audit Dashboard</h3>
                         <p class="project-description">Real-time monitoring and reporting dashboard built with Firebase and Google Cloud.</p>
+                        <button class="cta-button demo-button">Request Demo</button>
                     </div>
                 </div>
             </div>
@@ -601,6 +688,7 @@
                     <div class="project-overlay">
                         <h3 class="project-title">LMS Dashboard</h3>
                         <p class="project-description">Learning Management System with Google Apps Script and Sheets integration.</p>
+                        <button class="cta-button demo-button">Request Demo</button>
                     </div>
                 </div>
             </div>
@@ -613,6 +701,7 @@
                     <div class="project-overlay">
                         <h3 class="project-title">NHT Dashboard</h3>
                         <p class="project-description">Comprehensive monitoring dashboard with automated reporting capabilities.</p>
+                        <button class="cta-button demo-button">Request Demo</button>
                     </div>
                 </div>
             </div>
@@ -625,6 +714,7 @@
                     <div class="project-overlay">
                         <h3 class="project-title">Email CRM Tool</h3>
                         <p class="project-description">Customer relationship management tool powered by Google Workspace.</p>
+                        <button class="cta-button demo-button">Request Demo</button>
                     </div>
                 </div>
             </div>
@@ -681,6 +771,87 @@
                 }
             });
         });
+
+        // Modal functionality
+        const modal = document.getElementById('demoModal');
+        const demoButtons = document.querySelectorAll('.demo-button');
+        const closeBtn = document.querySelector('.close');
+        const demoForm = document.getElementById('demoForm');
+
+        // Open modal
+        demoButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.style.display = 'block';
+            });
+        });
+
+        // Close modal
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Form submission
+        demoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(demoForm);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const email = formData.get('email');
+            const company = formData.get('company');
+            const interest = formData.get('interest');
+            
+            const subject = 'Demo Request from Portfolio';
+            const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nCompany: ${company}\nInterest: ${interest}`;
+            
+            const mailtoLink = `mailto:shairowk@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            window.location.href = mailtoLink;
+            
+            // Close modal after submission
+            modal.style.display = 'none';
+            
+            // Reset form
+            demoForm.reset();
+        });
     </script>
+
+    <!-- Demo Request Modal -->
+    <div id="demoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Request a Demo</h2>
+            <form id="demoForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
+
+                <label for="email">Email ID</label>
+                <input type="email" id="email" name="email" required placeholder="Your email address">
+
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your company name">
+
+                <label for="interest">What are you looking for?</label>
+                <select id="interest" name="interest" required>
+                    <option value="">Select an option</option>
+                    <option value="Audit Dashboard">Audit Dashboard</option>
+                    <option value="LMS Dashboard">LMS Dashboard</option>
+                    <option value="App Script Automation">App Script Automation</option>
+                </select>
+
+                <button type="submit">Submit Request</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
