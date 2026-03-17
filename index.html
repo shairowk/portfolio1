@@ -571,28 +571,39 @@ gold-
 
         .contact-form-right input,
         .contact-form-right select {
-            padding: 0.75rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--gold-accent);
             border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--off-white);
-            font-family: 'DM Sans', sans-serif;
+            background: var(--warm-cream);
+            color: var(--deep-navy);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
             width: 100%;
         }
 
         .contact-form-right select {
-            background: rgba(10, 10, 10, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: var(--warm-cream);
+            border: 2px solid var(--gold-accent);
+            cursor: pointer;
         }
 
         .contact-form-right select option {
-            background: var(--black);
-            color: var(--off-white);
-            padding: 0.5rem;
+            background: var(--warm-cream);
+            color: var(--deep-navy);
+            padding: 0.75rem;
+            font-size: 1rem;
         }
 
         .contact-form-right input::placeholder {
-            color: rgba(245, 245, 240, 0.5);
+            color: var(--deep-navy);
+            opacity: 0.6;
+        }
+
+        .contact-form-right input:focus,
+        .contact-form-right select:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
         }
 
         .contact-form-right .full-width {
