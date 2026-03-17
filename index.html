@@ -6,12 +6,12 @@
     <title>Shairow | Low Code Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --black: #0a0a0a;
-            --off-white: #f5f5f0;
-            --accent: #E84C1E;
+            --deep-navy: #001122;
+            --warm-cream: #f5f5dc;
+            --gold-accent: #d4af37;
         }
 
         * {
@@ -21,9 +21,9 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: var(--black);
-            color: var(--off-white);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--deep-navy);
+            color: var(--warm-cream);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -36,8 +36,8 @@
             height: 70px;
             display: flex;
             align-items: center;
-            background: rgba(10, 10, 10, 0.84);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 17, 34, 0.9);
+            border-bottom: 1px solid rgba(245, 245, 220, 0.1);
             z-index: 100;
         }
 
@@ -65,18 +65,22 @@
         }
 
         .topbar-link {
-            color: var(--off-white);
+            color: var(--warm-cream);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s ease;
         }
 
         .topbar-link:hover {
-            color: var(--accent);
+            color: var(--gold-accent);
         }
 
         .serif {
             font-family: 'Playfair Display', serif;
+        }
+
+        .accent {
+            color: var(--gold-accent);
         }
 
         /* Hero Section */
@@ -87,7 +91,7 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--accent), #0a0a0a 80%);
+            background: var(--deep-navy);
         }
 
         .hero-bg-text {
@@ -98,7 +102,7 @@
             width: 50vw;
             font-size: clamp(5rem, 10vw, 12rem);
             font-weight: 900;
-            color: rgba(255, 255, 255, 0.16);
+            color: rgba(245, 245, 220, 0.1);
             text-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
             z-index: 0;
             pointer-events: none;
@@ -141,7 +145,7 @@
 
         .hero-right .accent,
         .hero-left .accent {
-            color: var(--off-white);
+            color: var(--gold-accent);
         }
 
         .hero-right p,
@@ -165,8 +169,8 @@
             position: absolute;
             bottom: -2.5rem;
             right: 0;
-            background: rgba(10, 10, 10, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 17, 34, 0.9);
+            border: 1px solid rgba(245, 245, 220, 0.1);
             padding: 1.2rem 1.4rem;
             border-radius: 24px;
             max-width: 320px;
@@ -182,32 +186,33 @@
             right: 20px;
             width: 24px;
             height: 24px;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(0, 17, 34, 0.9);
             transform: rotate(45deg);
         }
 
         .cta-button {
             display: inline-block;
-            background: var(--accent);
-            color: var(--off-white);
+            background: var(--gold-accent);
+            color: var(--deep-navy);
             padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 500;
             transition: all 0.3s ease;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--gold-accent);
         }
 
         .cta-button:hover {
             background: transparent;
+            color: var(--gold-accent);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(232, 76, 30, 0.3);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
         }
 
         /* Marquee */
         .marquee {
-            background: var(--accent);
-            color: var(--off-white);
+            background: var(--gold-accent);
+            color: var(--deep-navy);
             padding: 1rem 0;
             overflow: hidden;
             position: relative;
@@ -247,7 +252,7 @@
         }
 
         .statement .accent {
-            color: var(--accent);
+            color: var(--gold-accent);
         }
 
         .statement p {
@@ -270,7 +275,7 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--gold-accent);
             margin-bottom: 0.5rem;
         }
 
@@ -283,8 +288,9 @@
 
         /* Services Section */
         .services {
-            background: var(--black);
+            background: var(--warm-cream);
             padding: 8rem 2rem;
+            color: var(--deep-navy);
         }
 
         .services-content {
@@ -316,7 +322,7 @@
         }
 
         .service-item:hover {
-            border-bottom-color: var(--accent);
+            border-bottom-color: var(--gold-accent);
         }
 
         .service-item h3 {
@@ -329,13 +335,15 @@
         }
 
         .service-number {
-            color: var(--accent);
+            color: var(--gold-accent);
             font-weight: 700;
             margin-right: 1rem;
         }
 
         .service-arrow {
             transition: transform 0.3s ease;
+            color: var(--gold-accent);
+            color: var(--gold-accent);
         }
 
         .service-item:hover .service-arrow {
@@ -356,7 +364,8 @@
         /* Projects Section */
         .projects {
             padding: 8rem 2rem;
-            background: var(--black);
+            background: var(--deep-navy);
+            color: var(--warm-cream);
         }
 
         .projects h2 {
@@ -390,7 +399,7 @@
 
         .project-image {
             height: 250px;
-            background: linear-gradient(135deg, var(--accent), #333);
+            background: linear-gradient(135deg, var(--gold-accent), #333);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -401,8 +410,8 @@
             position: absolute;
             top: 1rem;
             left: 1rem;
-            background: var(--accent);
-            color: var(--off-white);
+            background: var(--gold-accent);
+            color: var(--deep-navy);
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -506,9 +515,10 @@
             padding: 10rem 2rem 6rem;
             max-width: 1400px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--warm-cream);
+            border: 1px solid rgba(0, 17, 34, 0.1);
             border-radius: 24px;
+            color: var(--deep-navy);
         }
 
         #contact {
@@ -522,9 +532,9 @@
             margin-bottom: 4rem;
             font-family: 'Playfair Display', serif;
         }
-
+gold-
         .contact-form .accent {
-            color: var(--accent);
+            color: var(--gold-accent);
         }
 
         .contact-form-content {
@@ -592,8 +602,8 @@
         .contact-form-right button {
             grid-column: 1 / -1;
             padding: 1rem 2rem;
-            background: var(--accent);
-            color: var(--off-white);
+            background: var(--gold-accent);
+            color: var(--deep-navy);
             border: none;
             border-radius: 50px;
             font-weight: 500;
@@ -603,8 +613,9 @@
         }
 
         .contact-form-right button:hover {
-            background: transparent;
-            border: 2px solid var(--accent);
+            background: var(--deep-navy);
+            border: 2px solid var(--gold-accent);
+            color: var(--gold-accent);
             transform: translateY(-2px);
         }
 
@@ -627,9 +638,9 @@
 
         /* Footer */
         .footer {
-            background: var(--black);
+            background: var(--deep-navy);
             padding: 4rem 2rem 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(245, 245, 220, 0.1);
         }
 
         .footer-content {
@@ -646,18 +657,19 @@
         }
 
         .social-link {
-            color: var(--off-white);
+            color: var(--warm-cream);
             text-decoration: none;
             font-size: 1.5rem;
             transition: color 0.3s ease;
         }
 
         .social-link:hover {
-            color: var(--accent);
+            color: var(--gold-accent);
         }
 
         .footer-text {
             opacity: 0.7;
+            color: var(--warm-cream);
             font-size: 0.9rem;
         }
     </style>
@@ -733,7 +745,7 @@
     <section class="services fade-in">
         <div class="services-content">
             <div class="services-left">
-                <h2 class="serif">EXPERTISE TO <span style="color: var(--accent)">TRANSFORM</span> IDEAS INTO IMPACTFUL PRODUCTS</h2>
+                <h2 class="serif">EXPERTISE TO <span style="color: var(--gold-accent)">TRANSFORM</span> IDEAS INTO IMPACTFUL PRODUCTS</h2>
             </div>
             <div class="services-right">
                 <ul class="services-list">
@@ -760,7 +772,7 @@
 
     <!-- Projects Section -->
     <section id="projects" class="projects fade-in">
-        <h2 class="serif">SHOWCASING PROJECTS THAT <span style="color: var(--accent)">DEFINE</span> MY APPROACH</h2>
+        <h2 class="serif">SHOWCASING PROJECTS THAT <span style="color: var(--gold-accent)">DEFINE</span> MY APPROACH</h2>
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
