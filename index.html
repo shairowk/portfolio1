@@ -624,6 +624,42 @@
                 grid-column: 1;
             }
         }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            color: var(--off-white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+        }
+
+        .footer-text {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -641,7 +677,7 @@
         <div class="topbar-content">
             <div class="topbar-brand serif">Shairow</div>
             <div class="topbar-links">
-                <a href="#contact" class="topbar-link">Request Demo</a>
+                <a href="#contact" class="topbar-link">Contact</a>
                 <a href="mailto:shairowk@gmail.com" class="topbar-link">Email</a>
                 <a href="shairow_resume (1).pdf" download class="topbar-link">Resume</a>
                 <a href="#projects" class="topbar-link">Work</a>
@@ -779,11 +815,11 @@
 
     <!-- Contact Form Section -->
     <section id="contact" class="contact-form fade-in">
-        <h2>REQUEST A <span class="accent">DEMO</span></h2>
+        <h2>GET IN <span class="accent">TOUCH</span></h2>
         <div class="contact-form-content">
             <div class="contact-form-left">
                 <h3>Let's Build Something Amazing Together</h3>
-                <p>Ready to transform your business with low-code solutions? Fill out the form below and I'll get back to you with a personalized demo of the tools that can help you achieve your goals.</p>
+                <p>Ready to collaborate on innovative low-code solutions? Fill out the form below and I'll get back to you to discuss how we can bring your ideas to life.</p>
             </div>
             <div class="contact-form-right">
                 <form id="contactForm" action="https://formspree.io/f/mvzwwwaa" method="POST">
@@ -817,6 +853,18 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/shairow1/" class="social-link" target="_blank">Instagram</a>
+                <a href="https://linkedin.com/in/shairow-k-0b5ab01b4" class="social-link" target="_blank">LinkedIn</a>
+                <a href="https://github.com/shairowk" class="social-link" target="_blank">GitHub</a>
+            </div>
+            <p class="footer-text">© 2024 Shairow. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // Intersection Observer for fade-in animations
