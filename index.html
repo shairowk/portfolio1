@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shairow | Quality & Automation Builder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRZVCWLLY5"></script>
@@ -18,207 +18,215 @@
 
 <style>
 :root{
-  --paper:#FAFBF8;
-  --ink:#17251F;
-  --muted:#5C6B63;
-  --green:#0E7C4A;
-  --green-dark:#0A5C37;
-  --amber:#E8A13D;
-  --blue:#2B6CB0;
-  --line:#E2E8E0;
-  --card:#FFFFFF;
-  --red:#C4553B;
-  --radius:14px;
+  --paper:#FAFBF8; --ink:#16241E; --muted:#5F6F66; --soft:#8A988F;
+  --green:#0E7C4A; --green-dark:#0A5C37; --green-bg:#E8F4EE;
+  --amber:#E8A13D; --blue:#2B6CB0; --red:#C4553B;
+  --line:#E4E9E3; --card:#FFFFFF; --radius:16px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  font-family:'IBM Plex Sans',sans-serif;
-  background:var(--paper);
-  background-image:linear-gradient(var(--line) 1px, transparent 1px),linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size:44px 44px;
-  color:var(--ink);
-  line-height:1.6;
-}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
 .mono{font-family:'IBM Plex Mono',monospace}
+a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
 
-/* ============ NAV ============ */
-nav{position:sticky;top:0;z-index:50;background:rgba(250,251,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;letter-spacing:-.02em}
+/* ---------- NAV ---------- */
+nav{position:sticky;top:0;z-index:60;background:rgba(250,251,248,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em}
 .logo span{color:var(--green)}
-nav ul{display:flex;gap:26px;list-style:none;align-items:center}
-nav a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color .2s}
-nav a:hover,nav a:focus-visible{color:var(--green)}
-nav .nav-resume{border:1.5px solid var(--ink);color:var(--ink);padding:6px 16px;border-radius:999px;font-weight:600}
+nav ul{display:flex;gap:28px;list-style:none;align-items:center}
+nav ul a{text-decoration:none;color:var(--muted);font-size:13.5px;font-weight:500;transition:color .2s}
+nav ul a:hover{color:var(--green)}
+nav .nav-resume{border:1.5px solid var(--ink);color:var(--ink);padding:7px 16px;border-radius:999px;font-weight:600}
 nav .nav-resume:hover{background:var(--ink);color:#fff}
-a:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
 
-/* ============ HERO ============ */
-.hero{padding:76px 0 56px}
-.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:16px}
-h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(34px,5.6vw,62px);line-height:1.05;letter-spacing:-.03em;max-width:820px}
-h1 em{font-style:normal;color:var(--green);position:relative}
-.hero p.lead{max-width:640px;margin-top:22px;font-size:17px;color:var(--muted)}
-.hero-cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-block;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;transition:transform .15s,box-shadow .15s}
-.btn-primary{background:var(--green);color:#fff;box-shadow:0 4px 14px rgba(14,124,74,.28)}
-.btn-primary:hover{transform:translateY(-2px)}
-.btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
-.btn-ghost:hover{background:var(--ink);color:#fff}
+/* ---------- HERO ---------- */
+.hero{padding:96px 0 70px;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:46px 46px;mask-image:linear-gradient(180deg,rgba(0,0,0,.5),transparent 85%);pointer-events:none}
+.hero .wrap{position:relative}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:18px}
+h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(34px,5.4vw,58px);line-height:1.06;letter-spacing:-.03em;max-width:760px}
+h1 .w{display:inline-block;opacity:0;transform:translateY(24px);animation:wordUp .7s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes wordUp{to{opacity:1;transform:none}}
+h1 em{font-style:normal;color:var(--green)}
+.lead{max-width:560px;margin-top:22px;font-size:16.5px;color:var(--muted);opacity:0;animation:fadeUp .8s .5s ease forwards}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .7s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;transition:transform .18s,box-shadow .18s;border:none;cursor:pointer}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 6px 18px rgba(14,124,74,.25)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(14,124,74,.32)}
+.btn-ghost{border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
 
-/* hero pipeline strip */
-.pipeline{margin-top:56px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px;box-shadow:0 10px 30px rgba(23,37,31,.06);overflow-x:auto}
-.pipeline-track{display:flex;align-items:center;gap:0;min-width:760px}
-.pnode{flex:1;text-align:center;position:relative}
-.pnode .picon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:22px;border:1.5px solid var(--line);background:var(--paper)}
-.pnode.active .picon{background:var(--green);border-color:var(--green);color:#fff;animation:pulse 2.6s ease-in-out infinite}
-.pnode h4{font-size:13px;font-weight:600}
-.pnode small{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--muted)}
-.parrow{color:var(--line);font-size:20px;padding:0 6px;margin-bottom:26px}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(14,124,74,.35)}50%{box-shadow:0 0 0 10px rgba(14,124,74,0)}}
+/* hero stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:60px;opacity:0;animation:fadeUp .8s .9s ease forwards}
+.stat{background:var(--card);padding:24px 22px}
+.stat b{font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:800;color:var(--ink);display:block;letter-spacing:-.02em;line-height:1.1}
+.stat b .unit{font-size:18px;color:var(--green)}
+.stat span{font-size:12.5px;color:var(--muted)}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
 
-/* ============ STATS ============ */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin:44px 0 0}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
-.stat b{font-family:'Bricolage Grotesque',sans-serif;font-size:30px;font-weight:800;color:var(--green);display:block;letter-spacing:-.02em}
-.stat span{font-size:13px;color:var(--muted)}
+/* ---------- SECTION SHELL ---------- */
+section{padding:84px 0}
+.sec-head{max-width:620px;margin-bottom:44px}
+.sec-head .eyebrow{margin-bottom:10px}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(26px,3.2vw,36px);letter-spacing:-.025em}
+.sec-head p{color:var(--muted);margin-top:10px;font-size:15px}
 
-/* ============ SECTIONS ============ */
-section{padding:70px 0}
-.sec-head{margin-bottom:38px}
-.sec-head .eyebrow{margin-bottom:8px}
-h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.025em}
-.sec-head p{color:var(--muted);max-width:600px;margin-top:8px;font-size:15px}
+/* ---------- PIPELINE ---------- */
+.pipe-sec{background:var(--ink);color:#DCE8E1;position:relative;overflow:hidden}
+.pipe-sec .eyebrow{color:#7FD6A8}
+.pipe-sec h2{color:#fff}
+.pipe-sec .sec-head p{color:#9AB0A5}
+.pipeline{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding:8px 0 16px;scrollbar-width:none}
+.pipeline::-webkit-scrollbar{display:none}
+.pnode{min-width:150px;flex:1;text-align:center;position:relative;padding:22px 10px;border-radius:14px;transition:background .4s}
+.pnode .picon{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:23px;background:#22352C;border:1.5px solid #33493E;transition:all .45s}
+.pnode h4{font-size:13px;font-weight:600;color:#fff}
+.pnode small{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7E948A}
+.pnode.lit{background:rgba(127,214,168,.06)}
+.pnode.lit .picon{background:var(--green);border-color:#2EA36C;box-shadow:0 0 0 8px rgba(46,163,108,.15),0 0 34px rgba(46,163,108,.35);transform:scale(1.08)}
+.pconn{width:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative;margin-top:-16px}
+.pconn::before{content:"";width:100%;height:2px;background:#33493E;position:absolute}
+.pconn .spark{width:8px;height:8px;border-radius:50%;background:#7FD6A8;position:absolute;left:-8px;opacity:0;box-shadow:0 0 10px #7FD6A8}
+.pconn.flow .spark{animation:flow 0.8s linear forwards}
+@keyframes flow{0%{left:-6px;opacity:1}100%{left:calc(100% - 2px);opacity:1}}
+.pipe-caption{text-align:center;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7FD6A8;min-height:20px;transition:opacity .3s}
 
-/* project rows */
-.project{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding:44px 0;border-top:1px dashed var(--line)}
-.project:first-of-type{border-top:none}
-.project.flip .p-text{order:2}
-.p-text .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.tag{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;padding:4px 11px;border-radius:999px;letter-spacing:.03em}
-.tag.gs{background:#E4F3EB;color:var(--green-dark)}
+/* ---------- PROJECT EXPLORER ---------- */
+.explorer{display:grid;grid-template-columns:270px 1fr;gap:0;border:1px solid var(--line);border-radius:20px;background:var(--card);overflow:hidden;box-shadow:0 24px 60px rgba(22,36,30,.08)}
+.rail{border-right:1px solid var(--line);background:#F5F8F4;padding:14px 0;max-height:640px;overflow-y:auto}
+.rail-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);padding:8px 22px 10px}
+.rail button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:none;padding:13px 22px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;border-left:3px solid transparent;transition:background .2s,border-color .2s}
+.rail button .num{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--soft);width:20px}
+.rail button .t{font-size:13.5px;font-weight:600;color:var(--muted);line-height:1.3;transition:color .2s}
+.rail button:hover{background:#EDF3EC}
+.rail button.active{background:#fff;border-left-color:var(--green)}
+.rail button.active .t{color:var(--ink)}
+.rail button.active .num{color:var(--green)}
+
+.stage{padding:38px 42px;position:relative;min-height:560px}
+.stage-inner{display:flex;flex-direction:column;gap:24px;opacity:1;transform:none}
+.stage-inner.out{opacity:0;transform:translateY(14px);transition:opacity .22s,transform .22s}
+.stage-inner.in{animation:stageIn .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes stageIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.tag-row{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:.03em}
+.tag.gs{background:var(--green-bg);color:var(--green-dark)}
 .tag.py{background:#E8EFF9;color:var(--blue)}
 .tag.web{background:#FBF0DD;color:#8A5A12}
 .tag.ai{background:#F4E9F5;color:#7A3A85}
-.p-text h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:12px}
-.p-text p{color:var(--muted);font-size:15px;margin-bottom:16px}
-.p-text ul{list-style:none}
-.p-text li{font-size:14px;padding:5px 0 5px 26px;position:relative}
-.p-text li::before{content:"→";position:absolute;left:0;color:var(--green);font-weight:600}
-.impact{margin-top:18px;display:inline-block;background:#FDF6EA;border:1px solid #F1DEB8;color:#7A5410;font-size:13px;font-weight:600;padding:8px 14px;border-radius:10px}
+.stage h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1.15}
+.stage .pitch{color:var(--muted);font-size:15px;max-width:560px}
+.stage-cols{display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:start}
+.hl{list-style:none;display:flex;flex-direction:column;gap:2px}
+.hl li{font-size:13.5px;padding:7px 0 7px 26px;position:relative;border-bottom:1px dashed var(--line)}
+.hl li:last-child{border-bottom:none}
+.hl li::before{content:"→";position:absolute;left:2px;color:var(--green);font-weight:700}
+.impact{display:inline-flex;align-items:center;gap:8px;background:#FDF6EA;border:1px solid #F1DEB8;color:#7A5410;font-size:13px;font-weight:600;padding:9px 16px;border-radius:12px;margin-top:14px}
+.stage-nav{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
+.stage-nav .count{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--soft)}
+.stage-nav .arrows{display:flex;gap:8px}
+.stage-nav button{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-size:15px;color:var(--ink);transition:all .2s}
+.stage-nav button:hover{border-color:var(--green);color:var(--green);transform:scale(1.06)}
 
-/* ============ MOCKUP FRAMES ============ */
-.shot{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 18px 44px rgba(23,37,31,.10);overflow:hidden;transition:transform .25s}
-.shot:hover{transform:translateY(-5px) rotate(-.4deg)}
-.shot-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);background:#F5F7F4}
-.dot{width:9px;height:9px;border-radius:50%}
+/* ---------- MOCKUPS ---------- */
+.shot{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 14px 36px rgba(22,36,30,.09)}
+.shot-bar{display:flex;align-items:center;gap:6px;padding:9px 13px;border-bottom:1px solid var(--line);background:#F5F7F4}
+.dot{width:8px;height:8px;border-radius:50%}
 .dot.r{background:#E9705C}.dot.y{background:#F0C24B}.dot.g{background:#67C288}
-.shot-bar .url{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--muted);margin-left:8px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:2px 10px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.shot-body{padding:16px;font-size:11.5px}
-
-/* CRM dashboard mockup */
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.shot-bar .url{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);margin-left:6px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:2px 10px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot-body{padding:14px;font-size:11.5px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
 .kpi{border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:var(--paper)}
-.kpi b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:17px;letter-spacing:-.02em}
+.kpi b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:16px;letter-spacing:-.02em}
 .kpi span{font-size:9.5px;color:var(--muted)}
-.kpi.k-green b{color:var(--green)}
-.kpi.k-amber b{color:var(--amber)}
-.kpi.k-red b{color:var(--red)}
-.bars{display:flex;align-items:flex-end;gap:8px;height:86px;border-bottom:1.5px solid var(--line);padding:0 4px;margin-bottom:6px}
-.bar{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#22A468,var(--green-dark));position:relative;animation:grow 1.1s ease both}
+.kpi.k-green b{color:var(--green)}.kpi.k-amber b{color:var(--amber)}.kpi.k-red b{color:var(--red)}
+.bars{display:flex;align-items:flex-end;gap:8px;height:80px;border-bottom:1.5px solid var(--line);padding:0 4px;margin-bottom:6px}
+.bar{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#22A468,var(--green-dark));transform-origin:bottom;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
 .bar.amber{background:linear-gradient(180deg,#F3B85F,#D68B1F)}
-@keyframes grow{from{height:0!important}}
+@keyframes grow{from{transform:scaleY(0)}}
 .bar-labels{display:flex;gap:8px;padding:0 4px}
 .bar-labels span{flex:1;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--muted)}
-
-/* spreadsheet mockup */
-.sheet{border:1px solid var(--line);border-radius:8px;overflow:hidden;font-family:'IBM Plex Mono',monospace;font-size:9.8px}
-.srow{display:grid;grid-template-columns:34px 1.6fr 1fr 1fr .9fr;border-top:1px solid var(--line)}
+.sheet{border:1px solid var(--line);border-radius:8px;overflow:hidden;font-family:'IBM Plex Mono',monospace;font-size:9.6px}
+.srow{display:grid;grid-template-columns:30px 1.7fr 1fr .9fr .9fr;border-top:1px solid var(--line)}
 .srow:first-child{border-top:none;background:#F0F4EF;font-weight:600}
 .srow div{padding:6px 8px;border-left:1px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .srow div:first-child{border-left:none;background:#F0F4EF;color:var(--muted);text-align:center}
-.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:8.8px;font-weight:600}
-.pill.ok{background:#E4F3EB;color:var(--green-dark)}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:8.6px;font-weight:600}
+.pill.ok{background:var(--green-bg);color:var(--green-dark)}
 .pill.run{background:#FBF0DD;color:#8A5A12}
 .pill.q{background:#EDEFF2;color:#5C6B63}
-
-/* terminal mockup */
-.term{background:#0F1D17;border-radius:8px;padding:14px 16px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#C9E5D6;line-height:1.85}
-.term .cmd{color:#8BD8B0}
-.term .ok{color:#67C288}
-.term .warn{color:#F0C24B}
-.term .dim{color:#5F7A6D}
+.term{background:#0F1D17;border-radius:10px;padding:14px 16px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#C9E5D6;line-height:1.9}
+.term .cmd{color:#8BD8B0}.term .ok{color:#67C288}.term .warn{color:#F0C24B}.term .dim{color:#5F7A6D}
 .cursor{display:inline-block;width:7px;height:13px;background:#67C288;vertical-align:-2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-
-/* portal cards mockup */
 .hub{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.hub-card{border:1px solid var(--line);border-radius:10px;padding:14px 10px;text-align:center;background:var(--paper);transition:border-color .2s}
-.shot:hover .hub-card{border-color:#BFD9CB}
+.hub-card{border:1px solid var(--line);border-radius:10px;padding:16px 10px;text-align:center;background:var(--paper)}
 .hub-card .hicon{font-size:20px;margin-bottom:6px}
 .hub-card b{display:block;font-size:11px}
 .hub-card span{font-size:9px;color:var(--muted)}
 .hub-title{text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;margin-bottom:10px}
-
-/* chat mockup */
 .chat{display:flex;flex-direction:column;gap:9px}
-.bubble{max-width:82%;padding:9px 13px;border-radius:13px;font-size:11px;line-height:1.5}
+.bubble{max-width:84%;padding:9px 13px;border-radius:13px;font-size:11px;line-height:1.5;animation:fadeUp .5s both}
+.bubble:nth-child(2){animation-delay:.25s}.bubble:nth-child(3){animation-delay:.5s}
 .bubble.user{align-self:flex-end;background:var(--green);color:#fff;border-bottom-right-radius:4px}
 .bubble.bot{align-self:flex-start;background:#F0F4EF;border:1px solid var(--line);border-bottom-left-radius:4px}
 .bubble.bot b{color:var(--green-dark)}
-.chat-input{margin-top:4px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:10.5px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.chat-input{margin-top:4px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:10.5px;color:var(--muted);display:flex;justify-content:space-between}
 .chat-input span:last-child{color:var(--green);font-weight:700}
-
-/* audit score mockup */
 .score-ring{display:flex;gap:14px;align-items:center;margin-bottom:12px}
-.ring{width:74px;height:74px;border-radius:50%;background:conic-gradient(var(--green) 0 87%, #E7ECE8 87% 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ring::before{content:"";width:56px;height:56px;border-radius:50%;background:var(--card);position:absolute}
-.ring b{position:relative;font-family:'Bricolage Grotesque',sans-serif;font-size:17px}
-.score-list{flex:1;display:flex;flex-direction:column;gap:6px}
+.ring{width:72px;height:72px;border-radius:50%;background:conic-gradient(var(--green) 0 87%,#E7ECE8 87% 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.ring::before{content:"";width:54px;height:54px;border-radius:50%;background:var(--card);position:absolute}
+.ring b{position:relative;font-family:'Bricolage Grotesque',sans-serif;font-size:16px}
+.score-list{flex:1;display:flex;flex-direction:column;gap:7px}
 .sl{display:flex;align-items:center;gap:8px;font-size:10.5px}
 .sl .track{flex:1;height:6px;border-radius:99px;background:#EDF1EC;overflow:hidden}
-.sl .fill{height:100%;border-radius:99px;background:var(--green)}
+.sl .fill{height:100%;border-radius:99px;background:var(--green);transform-origin:left;animation:fillIn 1s .2s cubic-bezier(.2,.7,.2,1) both}
 .sl .fill.a{background:var(--amber)}
-.sl span:first-child{width:92px;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:9.5px}
+@keyframes fillIn{from{transform:scaleX(0)}}
+.sl span:first-child{width:88px;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:9.3px}
 
-/* notebook mockup */
-.nb-cell{border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;margin-bottom:8px;overflow:hidden}
-.nb-cell .nb-in{background:#F4F7FB;padding:8px 12px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#2B4058}
-.nb-cell .nb-out{padding:7px 12px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--green-dark);background:#fff}
-
-/* ============ SKILLS ============ */
+/* ---------- SKILLS ---------- */
+.skills-sec{background:#F2F6F1;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.skill-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-.skill-card h4{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:9px}
-.skill-card .chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.skill-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .2s,box-shadow .2s}
+.skill-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(22,36,30,.08)}
+.skill-card h4{font-family:'Bricolage Grotesque',sans-serif;font-size:15.5px;font-weight:700;margin-bottom:13px;display:flex;gap:9px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:10.8px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
 
-/* ============ TIMELINE ============ */
-.timeline{border-left:2px solid var(--line);margin-left:8px;padding-left:28px;display:flex;flex-direction:column;gap:26px}
-.t-item{position:relative}
-.t-item::before{content:"";position:absolute;left:-35px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--green);border:3px solid var(--paper)}
-.t-item .t-date{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--green);font-weight:600;letter-spacing:.05em}
-.t-item h4{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:700;margin:3px 0}
-.t-item p{font-size:14px;color:var(--muted)}
+/* ---------- JOURNEY ---------- */
+.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.j-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;position:relative;overflow:hidden;transition:border-color .25s}
+.j-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--line);transition:background .3s}
+.j-card:hover{border-color:#BFDCCB}
+.j-card:hover::before{background:var(--green)}
+.j-card .j-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--green);font-weight:600;letter-spacing:.08em}
+.j-card h4{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;margin:8px 0 8px}
+.j-card p{font-size:13px;color:var(--muted)}
+@media(max-width:860px){.journey{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.journey{grid-template-columns:1fr}}
 
-/* ============ FOOTER ============ */
-footer{background:var(--ink);color:#D8E4DD;margin-top:60px}
-footer .wrap{padding:64px 24px 40px}
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:#D8E4DD}
+footer .wrap{padding:70px 24px 44px}
+footer .eyebrow{color:#7FD6A8}
 footer h2{color:#fff}
-.contact-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
-.contact-chip{border:1px solid #3A4E45;border-radius:999px;padding:10px 20px;font-size:14px;color:#D8E4DD;text-decoration:none;font-family:'IBM Plex Mono',monospace;transition:background .2s}
-.contact-chip:hover{background:#233A30}
-.foot-note{margin-top:44px;padding-top:22px;border-top:1px solid #2C4038;font-size:12px;color:#7E948A;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer p{color:#9AB0A5;max-width:500px;margin-top:12px}
+.contact-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.contact-chip{border:1px solid #3A4E45;border-radius:999px;padding:11px 22px;font-size:13.5px;color:#D8E4DD;text-decoration:none;font-family:'IBM Plex Mono',monospace;transition:all .2s}
+.contact-chip:hover{background:#233A30;border-color:#7FD6A8}
+.foot-note{margin-top:48px;padding-top:22px;border-top:1px solid #2C4038;font-size:12px;color:#7E948A;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 /* contact form (formspree) */
-.contact-formspree{margin-top:40px;background:#1B2C24;border:1px solid #2C4038;border-radius:var(--radius);padding:32px;max-width:640px}
+.contact-formspree{margin-top:40px;background:#1C2E26;border:1px solid #2C4038;border-radius:var(--radius);padding:32px;max-width:640px}
 .contact-formspree h3{font-family:'Bricolage Grotesque',sans-serif;font-size:19px;margin-bottom:6px;color:#fff}
-.contact-formspree .cf-sub{font-size:13px;color:#A9BDB3;margin-bottom:20px}
+.contact-formspree .cf-sub{font-size:13px;color:#9AB0A5;margin-bottom:20px}
 .cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .cf-grid .full{grid-column:1/-1}
-.contact-formspree label{display:block;font-size:12px;color:#A9BDB3;margin-bottom:6px;font-family:'IBM Plex Mono',monospace}
+.contact-formspree label{display:block;font-size:12px;color:#9AB0A5;margin-bottom:6px;font-family:'IBM Plex Mono',monospace}
 .contact-formspree input,.contact-formspree select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #3A4E45;background:#12201A;color:#D8E4DD;font-family:'IBM Plex Sans',sans-serif;font-size:14px}
 .contact-formspree input::placeholder{color:#5C7A6C}
 .contact-formspree input:focus,.contact-formspree select:focus{outline:none;border-color:var(--green)}
@@ -227,18 +235,24 @@ footer h2{color:#fff}
 .contact-formspree button:hover{transform:translateY(-2px)}
 @media (max-width:560px){.cf-grid{grid-template-columns:1fr}}
 
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  .bar,.pnode.active .picon,.cursor{animation:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.lead,.hero-cta,.stats,h1 .w{opacity:1;transform:none}
 }
-@media (max-width:820px){
-  .project{grid-template-columns:1fr;gap:26px}
-  .project.flip .p-text{order:0}
+@media(max-width:880px){
+  .explorer{grid-template-columns:1fr}
+  .rail{display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid var(--line);padding:10px;max-height:none;gap:6px}
+  .rail-label{display:none}
+  .rail button{width:auto;flex-shrink:0;border-left:none;border-radius:999px;padding:9px 16px;border:1.5px solid var(--line)}
+  .rail button.active{border-color:var(--green);background:var(--green-bg)}
+  .rail button .num{display:none}
+  .stage{padding:26px 22px;min-height:0}
+  .stage-cols{grid-template-columns:1fr}
   nav ul{display:none}
-  .kpis{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -248,9 +262,9 @@ footer h2{color:#fff}
   <div class="wrap">
     <div class="logo">Shairow<span>.</span></div>
     <ul>
+      <li><a href="#system">The system</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#journey">Journey</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="shairow_resume (1).pdf" download class="nav-resume">Resume</a></li>
     </ul>
@@ -260,305 +274,66 @@ footer h2{color:#fff}
 <header class="hero">
   <div class="wrap">
     <div class="eyebrow">Quality Ops × Automation × AI</div>
-    <h1>I turn messy spreadsheets into <em>working systems</em> — with zero budget.</h1>
-    <p class="lead">Quality &amp; Training professional who builds internal tools the team actually uses: CRMs, LMS portals, AI transcription pipelines, and audit automation — using Google Apps Script, Python, and the Claude API.</p>
+    <h1>
+      <span class="w" style="animation-delay:.05s">I</span>
+      <span class="w" style="animation-delay:.12s">turn</span>
+      <span class="w" style="animation-delay:.19s">messy</span>
+      <span class="w" style="animation-delay:.26s">spreadsheets</span>
+      <span class="w" style="animation-delay:.33s">into</span>
+      <span class="w" style="animation-delay:.42s"><em>working</em></span>
+      <span class="w" style="animation-delay:.5s"><em>systems.</em></span>
+    </h1>
+    <p class="lead">Quality &amp; Training professional who ships internal tools the team actually uses — CRMs, AI transcription pipelines, audit automation, and cloud portals. Built with Apps Script, Python, Firebase, Claude &amp; Gemini. Budget: ₹0.</p>
     <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">See the tools ↓</a>
+      <a href="#projects" class="btn btn-primary">Explore 8 projects ↓</a>
       <a href="#contact" class="btn btn-ghost">Get in touch</a>
     </div>
-
-    <div class="pipeline reveal">
-      <div class="pipeline-track">
-        <div class="pnode"><div class="picon">🎧</div><h4>Call recordings</h4><small>local / Drive</small></div>
-        <div class="parrow">→</div>
-        <div class="pnode active"><div class="picon">🎙️</div><h4>Deepgram STT</h4><small>Hindi + English</small></div>
-        <div class="parrow">→</div>
-        <div class="pnode"><div class="picon">📊</div><h4>Google Sheets</h4><small>auto-matched rows</small></div>
-        <div class="parrow">→</div>
-        <div class="pnode active"><div class="picon">🤖</div><h4>Claude API</h4><small>SOP-based audit</small></div>
-        <div class="parrow">→</div>
-        <div class="pnode"><div class="picon">✅</div><h4>QA dashboard</h4><small>scores &amp; insights</small></div>
-      </div>
-    </div>
-
-    <div class="stats reveal">
-      <div class="stat"><b>8+</b><span>internal tools shipped &amp; in daily use</span></div>
-      <div class="stat"><b>30,000+</b><span>leads managed in self-built CRM</span></div>
-      <div class="stat"><b>1,600+</b><span>hours of calls transcribed via AI</span></div>
-      <div class="stat"><b>500+</b><span>calls auto-audited per batch</span></div>
-      <div class="stat"><b>₹0</b><span>software licenses purchased</span></div>
+    <div class="stats">
+      <div class="stat"><b><span class="count" data-to="1600">0</span><span class="unit">+ hrs</span></b><span>of calls transcribed with AI</span></div>
+      <div class="stat"><b><span class="count" data-to="30">0</span><span class="unit">k+ </span></b><span>leads managed in self-built CRM</span></div>
+      <div class="stat"><b><span class="count" data-to="8">0</span><span class="unit">+</span></b><span>internal tools in daily use</span></div>
+      <div class="stat"><b>₹<span class="count" data-to="0">0</span></b><span>spent on software licenses</span></div>
     </div>
   </div>
 </header>
+
+<section class="pipe-sec" id="system">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">The system</div>
+      <h2>One pipeline, zero manual work</h2>
+      <p>Watch how a call recording becomes an audited QA score — automatically.</p>
+    </div>
+    <div class="pipeline reveal" id="pipeline">
+      <div class="pnode" data-cap="Recordings land in Drive / local folders"><div class="picon">🎧</div><h4>Call recordings</h4><small>Drive / local</small></div>
+      <div class="pconn"><span class="spark"></span></div>
+      <div class="pnode" data-cap="Deepgram transcribes Hindi + English speech"><div class="picon">🎙️</div><h4>Deepgram STT</h4><small>1,600+ hrs done</small></div>
+      <div class="pconn"><span class="spark"></span></div>
+      <div class="pnode" data-cap="Transcript auto-matched to the right CRM row"><div class="picon">📊</div><h4>Google Sheets</h4><small>auto-matched</small></div>
+      <div class="pconn"><span class="spark"></span></div>
+      <div class="pnode" data-cap="Claude &amp; Gemini score it against the real SOP"><div class="picon">🤖</div><h4>AI Audit</h4><small>Claude + Gemini</small></div>
+      <div class="pconn"><span class="spark"></span></div>
+      <div class="pnode" data-cap="Scores, risk flags &amp; insights — live dashboard"><div class="picon">✅</div><h4>QA Dashboard</h4><small>live scores</small></div>
+    </div>
+    <div class="pipe-caption" id="pipeCaption">Recordings land in Drive / local folders</div>
+  </div>
+</section>
 
 <section id="projects">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">Selected work</div>
-      <h2>Tools I designed, built &amp; shipped</h2>
-      <p>All screenshots below are recreations with dummy data — the real tools run on live company data.</p>
+      <h2>Explore the projects</h2>
+      <p>One at a time — pick from the list or use the arrows. All visuals are recreations with dummy data.</p>
     </div>
-
-    <!-- 1. Outbound CRM -->
-    <div class="project reveal">
-      <div class="p-text">
-        <div class="tag-row"><span class="tag gs">Apps Script</span><span class="tag gs">Google Sheets</span></div>
-        <h3>Outbound CRM &amp; Reporting Dashboard</h3>
-        <p>The outbound team was juggling 10 disconnected sheets with zero visibility. I built a full login-based CRM on top of Google Sheets — call queues, guided survey forms, and live supervisor dashboards.</p>
-        <ul>
-          <li>Role-based portal for agents &amp; supervisors</li>
-          <li>Campaign-wise queues with guided Hindi survey forms</li>
-          <li>Live connect-rate, team &amp; agent analytics, CSV export</li>
-          <li>New campaign onboarding in ~10 minutes, config-only</li>
-        </ul>
-        <div class="impact">💡 Replaced a paid CRM — total cost ₹0</div>
-      </div>
-      <div class="shot">
-        <div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">script.google.com/…/exec — Outbound CRM · Supervisor view</span></div>
-        <div class="shot-body">
-          <div class="kpis">
-            <div class="kpi k-green"><b>1,248</b><span>Connected</span></div>
-            <div class="kpi k-amber"><b>316</b><span>Not connected</span></div>
-            <div class="kpi k-red"><b>92</b><span>Unattended</span></div>
-            <div class="kpi"><b>78%</b><span>Connect rate</span></div>
-          </div>
-          <div class="bars">
-            <div class="bar" style="height:62%"></div>
-            <div class="bar" style="height:80%"></div>
-            <div class="bar amber" style="height:44%"></div>
-            <div class="bar" style="height:91%"></div>
-            <div class="bar" style="height:70%"></div>
-            <div class="bar amber" style="height:36%"></div>
-            <div class="bar" style="height:84%"></div>
-          </div>
-          <div class="bar-labels"><span>Team A</span><span>Team B</span><span>Team C</span><span>Team D</span><span>Team E</span><span>Team F</span><span>Team G</span></div>
-        </div>
-      </div>
+    <div class="explorer reveal">
+      <div class="rail" id="rail"><div class="rail-label">08 projects</div></div>
+      <div class="stage"><div class="stage-inner" id="stage"></div></div>
     </div>
-
-    <!-- 2. Deepgram pipeline -->
-    <div class="project flip reveal">
-      <div class="p-text">
-        <div class="tag-row"><span class="tag py">Python</span><span class="tag py">Colab</span><span class="tag ai">Deepgram API</span></div>
-        <h3>AI Call Transcription Pipeline — 1,600+ hours processed</h3>
-        <p>Hindi/Hinglish call recordings at scale — over 1,600 hours transcribed automatically and matched to the right CRM row by phone number + timestamp. No manual replay, no copy-paste.</p>
-        <ul>
-          <li>1,600+ hours of audio transcribed end-to-end</li>
-          <li>Colab notebook + desktop script + Apps Script variants</li>
-          <li>Direct REST integration — no SDK version breakage</li>
-          <li>Smart matching: calling number + 30-min datetime window</li>
-          <li>Safe re-runs — already-transcribed rows are skipped</li>
-        </ul>
-        <div class="impact">💡 Manual note-taking eliminated — 1,600+ hrs automated</div>
-      </div>
-      <div class="shot">
-        <div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">colab.research.google.com — deepgram_to_gsheet.ipynb</span></div>
-        <div class="shot-body">
-          <div class="term">
-            <div><span class="cmd">▶ run_pipeline(folder="recordings/")</span></div>
-            <div><span class="dim">found 48 audio files · sorting oldest-first…</span></div>
-            <div><span class="ok">✓</span> 98120xxxx1_0914.mp3 → row 12 <span class="dim">(2.1s)</span></div>
-            <div><span class="ok">✓</span> 98231xxxx7_0921.mp3 → row 13 <span class="dim">(1.8s)</span></div>
-            <div><span class="warn">↷</span> row 14 skipped <span class="dim">— transcript exists</span></div>
-            <div><span class="ok">✓</span> 99870xxxx3_0936.mp3 → row 15 <span class="dim">(2.4s)</span></div>
-            <div><span class="ok">✓ 47/48 written to Google Sheet</span> <span class="cursor"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. QA Audit -->
-    <div class="project reveal">
-      <div class="p-text">
-        <div class="tag-row"><span class="tag gs">Apps Script</span><span class="tag ai">Claude API</span></div>
-        <h3>AI QA Audit Tool — SOP-based scoring</h3>
-        <p>500+ transcripts sitting in a sheet, each needing manual audit against a quality SOP. Now one menu click sends every pending transcript to Claude, which scores it against the exact SOP criteria.</p>
-        <ul>
-          <li>Custom prompt engineered from the team's real audit SOP</li>
-          <li>Batch processing with timeout-safe chunks</li>
-          <li>Auto-fills score, resolution check, risk flags, summary</li>
-          <li>Handles Hindi / English / mixed-language calls</li>
-        </ul>
-        <div class="impact">💡 Per-audit effort cut dramatically in pilot</div>
-      </div>
-      <div class="shot">
-        <div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">docs.google.com/spreadsheets — QA Results</span></div>
-        <div class="shot-body">
-          <div class="score-ring">
-            <div class="ring"><b>87%</b></div>
-            <div class="score-list">
-              <div class="sl"><span>Resolution</span><div class="track"><div class="fill" style="width:92%"></div></div><span>9.2</span></div>
-              <div class="sl"><span>Empathy</span><div class="track"><div class="fill" style="width:84%"></div></div><span>8.4</span></div>
-              <div class="sl"><span>SOP adherence</span><div class="track"><div class="fill a" style="width:71%"></div></div><span>7.1</span></div>
-            </div>
-          </div>
-          <div class="sheet">
-            <div class="srow"><div>#</div><div>Transcript</div><div>Score</div><div>Risk flag</div><div>Status</div></div>
-            <div class="srow"><div>2</div><div>[00:02] Agent: Namaste…</div><div>9.1 / 10</div><div>—</div><div><span class="pill ok">Done</span></div></div>
-            <div class="srow"><div>3</div><div>[00:05] Driver: battery…</div><div>6.4 / 10</div><div>⚠ stranding</div><div><span class="pill ok">Done</span></div></div>
-            <div class="srow"><div>4</div><div>[00:01] Agent: Hello ji…</div><div>—</div><div>—</div><div><span class="pill run">Auditing…</span></div></div>
-            <div class="srow"><div>5</div><div>[00:03] Customer: swap…</div><div>—</div><div>—</div><div><span class="pill q">Queued</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 4. Portal hub -->
-    <div class="project flip reveal">
-      <div class="p-text">
-        <div class="tag-row"><span class="tag gs">Apps Script</span><span class="tag web">Web App</span></div>
-        <h3>Unified Portal Hub — 3 apps, 1 URL</h3>
-        <p>PKT quiz portal, Training LMS, and Feedback/Audit portal used to live at three separate links. I consolidated them into a single Apps Script deployment with a router and a landing hub.</p>
-        <ul>
-          <li>One <span class="mono">doGet</span> router: <span class="mono">?app=pkt / lms / audit</span></li>
-          <li>Namespaced backends, each with its own spreadsheet DB</li>
-          <li>Single deployment to maintain instead of three</li>
-          <li>Mobile-friendly landing page for the whole team</li>
-        </ul>
-        <div class="impact">💡 One link shared with the entire org</div>
-      </div>
-      <div class="shot">
-        <div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">script.google.com/…/exec — Portal Hub</span></div>
-        <div class="shot-body">
-          <div class="hub-title">⚡ Team Portal Hub</div>
-          <div class="hub">
-            <div class="hub-card"><div class="hicon">📘</div><b>PKT Portal</b><span>Knowledge tests &amp; quizzes</span></div>
-            <div class="hub-card"><div class="hicon">🎓</div><b>Training LMS</b><span>Day-wise learning journey</span></div>
-            <div class="hub-card"><div class="hicon">📊</div><b>Audit Portal</b><span>Scorecards &amp; feedback</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5. SOP Chatbot -->
-    <div class="project reveal">
-      <div class="p-text">
-        <div class="tag-row"><span class="tag ai">Claude API</span><span class="tag web">Web App</span></div>
-        <h3>SOP Knowledge Chatbot</h3>
-        <p>Agents used to ping supervisors for every SOP doubt. This chatbot ingests the SOP library and answers process questions instantly, in the same Hinglish the team speaks.</p>
-        <ul>
-          <li>Full SOP ingestion pipeline &amp; conversation flow design</li>
-          <li>Formatted, source-grounded answers for operational use</li>
-          <li>Piloted with QA &amp; training teams — strong feedback</li>
-        </ul>
-        <div class="impact">💡 Reduced SOP lookup time &amp; supervisor dependency</div>
-      </div>
-      <div class="shot">
-        <div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">SOP Assistant — internal pilot</span></div>
-        <div class="shot-body">
-          <div class="chat">
-            <div class="bubble user">Agar customer ka refund 7 din me nahi aaya toh kya process hai?</div>
-            <div class="bubble bot"><b>SOP §4.2 — Refund escalation:</b> 7 din ke baad ticket ko Finance queue me escalate karein, priority "High" set karein, aur customer ko 48-hr TAT confirm karein.</div>
-            <div class="bubble user">Aur agar payment gateway fail hua ho?</div>
-          </div>
-          <div class="chat-input"><span>Type your SOP question…</span><span>➤</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6. QMS platform -->
-    <div class="project flip reveal">
-      <div class="p-text">
-        <div class="tag-row"><span class="tag web">Firebase Hosting</span><span class="tag web">Firebase Auth</span><span class="tag web">Firestore</span><span class="tag ai">Gemini API</span></div>
-        <h3>Cloud Quality Management Platform</h3>
-        <p>An end-to-end quality web app — audit logging, calibration tracking, and KPI reporting — deployed live on Firebase Hosting and used daily across 3 vendor sites.</p>
-        <ul>
-          <li>Deployed on Firebase Hosting with secure login via Firebase Auth</li>
-          <li>Firestore real-time database — dashboards update live</li>
-          <li>Gemini API features prototyped in Google AI Studio</li>
-          <li>Structured reporting &amp; automated audit workflows</li>
-          <li>Designed, built, deployed &amp; maintained solo</li>
-        </ul>
-        <div class="impact">💡 Live at 3 vendor sites — zero external dev support</div>
-      </div>
-      <div class="shot">
-        <div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">qms.internal — Vendor overview</span></div>
-        <div class="shot-body">
-          <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
-            <div class="kpi k-green"><b>Site A</b><span>Quality 91.2%</span></div>
-            <div class="kpi k-green"><b>Site B</b><span>Quality 88.7%</span></div>
-            <div class="kpi k-amber"><b>Site C</b><span>Quality 82.4%</span></div>
-          </div>
-          <div class="sheet">
-            <div class="srow"><div>#</div><div>Audit</div><div>Auditor</div><div>Score</div><div>Status</div></div>
-            <div class="srow"><div>1</div><div>Calibration — Wk 29</div><div>Priya S.</div><div>94%</div><div><span class="pill ok">Closed</span></div></div>
-            <div class="srow"><div>2</div><div>Call audit batch #214</div><div>Rahul M.</div><div>86%</div><div><span class="pill ok">Closed</span></div></div>
-            <div class="srow"><div>3</div><div>Process audit — Site C</div><div>Anita K.</div><div>—</div><div><span class="pill run">Open</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 7. LMS/NHT dashboards -->
-    <div class="project reveal">
-      <div class="p-text">
-        <div class="tag-row"><span class="tag gs">Apps Script</span><span class="tag gs">Dashboards</span></div>
-        <h3>LMS &amp; New-Hire Training Dashboards</h3>
-        <p>Two connected dashboards: an LMS tracking learner progress and course completion, and an NHT view monitoring onboarding milestones with automated reports for HR &amp; trainers.</p>
-        <ul>
-          <li>Real-time learner &amp; batch progress tracking</li>
-          <li>Milestone monitoring for new-hire batches</li>
-          <li>Automated reporting — no manual MIS work</li>
-        </ul>
-        <div class="impact">💡 Manual MIS reporting fully automated</div>
-      </div>
-      <div class="shot">
-        <div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">NHT Dashboard — Batch 14</span></div>
-        <div class="shot-body">
-          <div class="kpis">
-            <div class="kpi"><b>42</b><span>Trainees</span></div>
-            <div class="kpi k-green"><b>86%</b><span>Avg. PKT score</span></div>
-            <div class="kpi k-amber"><b>5</b><span>At risk</span></div>
-            <div class="kpi"><b>Day 9</b><span>of 15</span></div>
-          </div>
-          <div class="score-list">
-            <div class="sl"><span>Module 1</span><div class="track"><div class="fill" style="width:100%"></div></div><span>100%</span></div>
-            <div class="sl"><span>Module 2</span><div class="track"><div class="fill" style="width:93%"></div></div><span>93%</span></div>
-            <div class="sl"><span>Module 3</span><div class="track"><div class="fill a" style="width:58%"></div></div><span>58%</span></div>
-            <div class="sl"><span>Module 4</span><div class="track"><div class="fill a" style="width:12%"></div></div><span>12%</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 8. Email CRM -->
-    <div class="project flip reveal">
-      <div class="p-text">
-        <div class="tag-row"><span class="tag gs">Apps Script</span><span class="tag gs">Gmail API</span><span class="tag gs">Google Sheets</span></div>
-        <h3>Email CRM — synced with a live Gmail account</h3>
-        <p>A lightweight CRM that syncs directly with a real Gmail inbox using Apps Script — every incoming and outgoing mail is auto-logged against the right contact, with status tracking and follow-up reminders, all inside Google Sheets.</p>
-        <ul>
-          <li>Two-way sync with a live Gmail account — no manual logging</li>
-          <li>Auto-matches threads to contacts &amp; deal records</li>
-          <li>Status pipeline: New → Replied → Follow-up → Closed</li>
-          <li>Scheduled triggers keep the sheet fresh automatically</li>
-          <li>Templated replies &amp; bulk send from the sheet itself</li>
-        </ul>
-        <div class="impact">💡 A working email CRM for ₹0 — no HubSpot needed</div>
-      </div>
-      <div class="shot">
-        <div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">Email CRM — Inbox sync · connected to Gmail</span></div>
-        <div class="shot-body">
-          <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
-            <div class="kpi k-green"><b>214</b><span>Threads synced</span></div>
-            <div class="kpi k-amber"><b>18</b><span>Awaiting reply</span></div>
-            <div class="kpi"><b>7</b><span>Follow-ups due</span></div>
-          </div>
-          <div class="sheet">
-            <div class="srow"><div>✉</div><div>Contact / Subject</div><div>Last sync</div><div>Owner</div><div>Status</div></div>
-            <div class="srow"><div>●</div><div>Amit V. — Pricing query</div><div>2 min ago</div><div>You</div><div><span class="pill ok">Replied</span></div></div>
-            <div class="srow"><div>●</div><div>Neha G. — Demo request</div><div>14 min ago</div><div>You</div><div><span class="pill run">Follow-up</span></div></div>
-            <div class="srow"><div>○</div><div>Vendor Co. — Invoice #482</div><div>1 hr ago</div><div>Rahul</div><div><span class="pill q">New</span></div></div>
-            <div class="srow"><div>●</div><div>Sana K. — Onboarding docs</div><div>3 hrs ago</div><div>You</div><div><span class="pill ok">Closed</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<section id="skills" style="background:#F2F6F1;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section class="skills-sec" id="skills">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">Toolbox</div>
@@ -566,9 +341,9 @@ footer h2{color:#fff}
     </div>
     <div class="skills-grid reveal">
       <div class="skill-card"><h4>⚙️ Automation &amp; Dev</h4><div class="chips"><span class="chip">Google Apps Script</span><span class="chip">Python</span><span class="chip">Google Colab</span><span class="chip">HTML/CSS/JS</span><span class="chip">Streamlit</span></div></div>
-      <div class="skill-card"><h4>🤖 AI &amp; APIs</h4><div class="chips"><span class="chip">Claude API</span><span class="chip">Gemini API</span><span class="chip">Google AI Studio</span><span class="chip">Deepgram STT</span><span class="chip">Gmail API</span><span class="chip">Prompt engineering</span><span class="chip">REST APIs</span></div></div>
-      <div class="skill-card"><h4>☁️ Cloud &amp; Data</h4><div class="chips"><span class="chip">Firebase Hosting</span><span class="chip">Firebase Auth</span><span class="chip">Firestore</span><span class="chip">Google Sheets as DB</span><span class="chip">GCP</span></div></div>
-      <div class="skill-card"><h4>📈 Quality &amp; Ops</h4><div class="chips"><span class="chip">Lean Six Sigma</span><span class="chip">DMAIC</span><span class="chip">RCA</span><span class="chip">Audit &amp; SOP design</span><span class="chip">KPI dashboards</span></div></div>
+      <div class="skill-card"><h4>🤖 AI &amp; APIs</h4><div class="chips"><span class="chip">Claude API</span><span class="chip">Gemini API</span><span class="chip">Google AI Studio</span><span class="chip">Deepgram STT</span><span class="chip">Gmail API</span><span class="chip">Prompt engineering</span></div></div>
+      <div class="skill-card"><h4>☁️ Cloud &amp; Data</h4><div class="chips"><span class="chip">Firebase Hosting</span><span class="chip">Firebase Auth</span><span class="chip">Firestore</span><span class="chip">Sheets as DB</span><span class="chip">GCP</span></div></div>
+      <div class="skill-card"><h4>📈 Quality &amp; Ops</h4><div class="chips"><span class="chip">Lean Six Sigma</span><span class="chip">DMAIC</span><span class="chip">RCA</span><span class="chip">SOP &amp; audit design</span><span class="chip">KPI dashboards</span></div></div>
     </div>
   </div>
 </section>
@@ -579,20 +354,20 @@ footer h2{color:#fff}
       <div class="eyebrow">How it evolved</div>
       <h2>The build journey</h2>
     </div>
-    <div class="timeline reveal">
-      <div class="t-item"><div class="t-date">PHASE 01</div><h4>Automate the boring parts</h4><p>First Apps Script automations: MIS reports, trackers, and dashboards replacing manual spreadsheet work.</p></div>
-      <div class="t-item"><div class="t-date">PHASE 02</div><h4>Build real products</h4><p>LMS, NHT dashboard, PKT portal, audit portal — full web apps on Apps Script with Sheets as the database.</p></div>
-      <div class="t-item"><div class="t-date">PHASE 03</div><h4>Add AI to the workflow</h4><p>Deepgram transcription pipeline in Python (1,600+ hours processed), then Claude &amp; Gemini-powered SOP audits and a knowledge chatbot — prototyped in Google AI Studio.</p></div>
-      <div class="t-item"><div class="t-date">PHASE 04</div><h4>Unify, deploy &amp; scale</h4><p>Consolidated portals into one hub, deployed the QMS web app on Firebase Hosting (Auth + Firestore) across 3 vendor sites, built a Gmail-synced Email CRM, and now migrating toward a single React frontend.</p></div>
+    <div class="journey reveal">
+      <div class="j-card"><div class="j-num">PHASE 01</div><h4>Automate the boring parts</h4><p>First Apps Script automations — MIS reports, trackers, dashboards replacing manual spreadsheet work.</p></div>
+      <div class="j-card"><div class="j-num">PHASE 02</div><h4>Build real products</h4><p>LMS, NHT dashboard, PKT &amp; audit portals — full web apps with Sheets as the database.</p></div>
+      <div class="j-card"><div class="j-num">PHASE 03</div><h4>Add AI to the workflow</h4><p>1,600+ hrs transcribed with Deepgram, then Claude &amp; Gemini audits — built and delivered using Google AI Studio.</p></div>
+      <div class="j-card"><div class="j-num">PHASE 04</div><h4>Deploy &amp; scale</h4><p>QMS live on Firebase at vendor sites, Gmail-synced Email CRM, portals unified into one hub.</p></div>
     </div>
   </div>
 </section>
 
 <footer id="contact">
   <div class="wrap">
-    <div class="eyebrow" style="color:#8BD8B0">Contact</div>
+    <div class="eyebrow">Contact</div>
     <h2>Let's build something useful.</h2>
-    <p style="margin-top:12px;max-width:520px;color:#A9BDB3">Open to roles and projects in quality operations, process automation, and AI-powered internal tools.</p>
+    <p>Open to roles and projects in quality operations, process automation, and AI-powered internal tools.</p>
     <div class="contact-row">
       <a class="contact-chip" href="mailto:shairowk@gmail.com">✉ shairowk@gmail.com</a>
       <a class="contact-chip" href="https://linkedin.com/in/shairow-k-0b5ab01b4" target="_blank" rel="noopener">in/ LinkedIn</a>
@@ -643,10 +418,242 @@ footer h2{color:#fff}
 </footer>
 
 <script>
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+/* ============ PROJECT DATA ============ */
+const P = [
+{ id:'crm', title:'Outbound CRM & Reporting Dashboard', short:'Outbound CRM',
+  tags:'<span class="tag gs">Apps Script</span><span class="tag gs">Google Sheets</span>',
+  pitch:'10 disconnected sheets became one login-based CRM — call queues, guided survey forms, and live supervisor analytics for 30,000+ leads.',
+  hl:['Role-based portal for agents & supervisors','Campaign queues with guided Hindi survey forms','Live connect-rate & team analytics, CSV export','New campaign onboarding in ~10 min, config-only'],
+  impact:'💡 Replaced a paid CRM — total cost ₹0',
+  shot:`<div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">script.google.com/…/exec — Supervisor view</span></div>
+  <div class="shot-body">
+    <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi k-green"><b>1,248</b><span>Connected</span></div>
+      <div class="kpi k-amber"><b>316</b><span>Not connected</span></div>
+      <div class="kpi k-red"><b>92</b><span>Unattended</span></div>
+      <div class="kpi"><b>78%</b><span>Connect rate</span></div>
+    </div>
+    <div class="bars">
+      <div class="bar" style="height:62%"></div><div class="bar" style="height:80%;animation-delay:.06s"></div>
+      <div class="bar amber" style="height:44%;animation-delay:.12s"></div><div class="bar" style="height:91%;animation-delay:.18s"></div>
+      <div class="bar" style="height:70%;animation-delay:.24s"></div><div class="bar amber" style="height:36%;animation-delay:.3s"></div>
+      <div class="bar" style="height:84%;animation-delay:.36s"></div>
+    </div>
+    <div class="bar-labels"><span>Team A</span><span>Team B</span><span>Team C</span><span>Team D</span><span>Team E</span><span>Team F</span><span>Team G</span></div>
+  </div>` },
+{ id:'transcribe', title:'AI Transcription Pipeline — 1,600+ hrs', short:'AI Transcription · 1,600+ hrs',
+  tags:'<span class="tag py">Python</span><span class="tag py">Colab</span><span class="tag ai">Deepgram</span>',
+  pitch:'Over 1,600 hours of Hindi/Hinglish calls transcribed automatically and matched to the right CRM row by phone number + timestamp.',
+  hl:['1,600+ hours of audio processed end-to-end','Colab + desktop + Apps Script variants','Smart matching: number + 30-min time window','Safe re-runs — done rows are skipped'],
+  impact:'💡 Manual note-taking eliminated — 1,600+ hrs automated',
+  shot:`<div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">colab — deepgram_to_gsheet.ipynb</span></div>
+  <div class="shot-body"><div class="term">
+    <div><span class="cmd">▶ run_pipeline(folder="recordings/")</span></div>
+    <div><span class="dim">found 48 audio files · sorting oldest-first…</span></div>
+    <div><span class="ok">✓</span> 98120xxxx1_0914.mp3 → row 12 <span class="dim">(2.1s)</span></div>
+    <div><span class="ok">✓</span> 98231xxxx7_0921.mp3 → row 13 <span class="dim">(1.8s)</span></div>
+    <div><span class="warn">↷</span> row 14 skipped <span class="dim">— transcript exists</span></div>
+    <div><span class="ok">✓ 47/48 written to Google Sheet</span> <span class="cursor"></span></div>
+  </div></div>` },
+{ id:'audit', title:'AI QA Audit Tool — SOP-based scoring', short:'AI QA Audit Tool',
+  tags:'<span class="tag gs">Apps Script</span><span class="tag ai">Claude API</span>',
+  pitch:'One menu click sends 500+ pending transcripts to Claude, which scores each against the team’s real audit SOP — in Hindi, English, or mixed.',
+  hl:['Prompt engineered from the real audit SOP','Batch processing with timeout-safe chunks','Auto-fills score, risk flags & summary','Handles Hindi / English / Hinglish calls'],
+  impact:'💡 Per-audit effort cut dramatically in pilot',
+  shot:`<div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">sheets — QA Results</span></div>
+  <div class="shot-body">
+    <div class="score-ring">
+      <div class="ring"><b>87%</b></div>
+      <div class="score-list">
+        <div class="sl"><span>Resolution</span><div class="track"><div class="fill" style="width:92%"></div></div><span>9.2</span></div>
+        <div class="sl"><span>Empathy</span><div class="track"><div class="fill" style="width:84%"></div></div><span>8.4</span></div>
+        <div class="sl"><span>SOP adherence</span><div class="track"><div class="fill a" style="width:71%"></div></div><span>7.1</span></div>
+      </div>
+    </div>
+    <div class="sheet">
+      <div class="srow"><div>#</div><div>Transcript</div><div>Score</div><div>Risk</div><div>Status</div></div>
+      <div class="srow"><div>2</div><div>[00:02] Agent: Namaste…</div><div>9.1/10</div><div>—</div><div><span class="pill ok">Done</span></div></div>
+      <div class="srow"><div>3</div><div>[00:05] Driver: battery…</div><div>6.4/10</div><div>⚠ risk</div><div><span class="pill ok">Done</span></div></div>
+      <div class="srow"><div>4</div><div>[00:01] Agent: Hello ji…</div><div>—</div><div>—</div><div><span class="pill run">Auditing…</span></div></div>
+    </div>
+  </div>` },
+{ id:'hub', title:'Unified Portal Hub — 3 apps, 1 URL', short:'Unified Portal Hub',
+  tags:'<span class="tag gs">Apps Script</span><span class="tag web">Web App</span>',
+  pitch:'PKT quizzes, Training LMS, and the Audit portal consolidated into one Apps Script deployment with a router and a mobile-friendly landing hub.',
+  hl:['One doGet router: ?app=pkt / lms / audit','Namespaced backends, own spreadsheet DBs','Single deployment instead of three','One link shared with the whole org'],
+  impact:'💡 3 tools → 1 URL for the entire org',
+  shot:`<div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">script.google.com/…/exec — Portal Hub</span></div>
+  <div class="shot-body">
+    <div class="hub-title">⚡ Team Portal Hub</div>
+    <div class="hub">
+      <div class="hub-card"><div class="hicon">📘</div><b>PKT Portal</b><span>Knowledge tests</span></div>
+      <div class="hub-card"><div class="hicon">🎓</div><b>Training LMS</b><span>Learning journey</span></div>
+      <div class="hub-card"><div class="hicon">📊</div><b>Audit Portal</b><span>Scorecards</span></div>
+    </div>
+  </div>` },
+{ id:'bot', title:'SOP Knowledge Chatbot', short:'SOP Chatbot',
+  tags:'<span class="tag ai">Claude API</span><span class="tag web">Web App</span>',
+  pitch:'Agents used to ping supervisors for every SOP doubt. This bot ingests the SOP library and answers instantly — in the Hinglish the team speaks.',
+  hl:['Full SOP ingestion & conversation design','Source-grounded, formatted answers','Piloted with QA & training teams'],
+  impact:'💡 Cut SOP lookup time & supervisor dependency',
+  shot:`<div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">SOP Assistant — internal pilot</span></div>
+  <div class="shot-body">
+    <div class="chat">
+      <div class="bubble user">Agar customer ka refund 7 din me nahi aaya toh kya process hai?</div>
+      <div class="bubble bot"><b>SOP §4.2 — Refund escalation:</b> 7 din ke baad ticket Finance queue me escalate karein, priority "High" set karein, customer ko 48-hr TAT confirm karein.</div>
+      <div class="bubble user">Aur agar payment gateway fail hua ho?</div>
+    </div>
+    <div class="chat-input"><span>Type your SOP question…</span><span>➤</span></div>
+  </div>` },
+{ id:'qms', title:'Cloud Quality Management Platform', short:'Cloud QMS · Firebase',
+  tags:'<span class="tag web">Firebase Hosting</span><span class="tag web">Auth + Firestore</span><span class="tag ai">Gemini API</span>',
+  pitch:'A full quality web app — audits, calibration, KPI reporting — deployed on Firebase Hosting with secure login, live at vendor sites.',
+  hl:['Firebase Hosting + Auth secure login','Firestore real-time DB — live dashboards','Gemini features built and delivered using AI Studio','Designed, built &amp; deployed solo'],
+  impact:'💡 Live at multiple vendor sites — zero external dev support',
+  shot:`<div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">qms.web.app — Vendor overview</span></div>
+  <div class="shot-body">
+    <div class="kpis">
+      <div class="kpi k-green"><b>Site A</b><span>Quality 91.2%</span></div>
+      <div class="kpi k-green"><b>Site B</b><span>Quality 88.7%</span></div>
+      <div class="kpi k-amber"><b>Site C</b><span>Quality 82.4%</span></div>
+    </div>
+    <div class="sheet">
+      <div class="srow"><div>#</div><div>Audit</div><div>Auditor</div><div>Score</div><div>Status</div></div>
+      <div class="srow"><div>1</div><div>Calibration — Wk 29</div><div>Priya S.</div><div>94%</div><div><span class="pill ok">Closed</span></div></div>
+      <div class="srow"><div>2</div><div>Call batch #214</div><div>Rahul M.</div><div>86%</div><div><span class="pill ok">Closed</span></div></div>
+      <div class="srow"><div>3</div><div>Process — Site C</div><div>Anita K.</div><div>—</div><div><span class="pill run">Open</span></div></div>
+    </div>
+  </div>` },
+{ id:'lms', title:'LMS & New-Hire Training Dashboards', short:'LMS & NHT Dashboards',
+  tags:'<span class="tag gs">Apps Script</span><span class="tag gs">Dashboards</span>',
+  pitch:'Learner progress, course completion, and new-hire milestones tracked in real time — with automated reports for HR & trainers.',
+  hl:['Real-time learner & batch tracking','Milestone monitoring for NHT batches','Manual MIS reporting fully automated'],
+  impact:'💡 Manual MIS reporting fully automated',
+  shot:`<div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">NHT Dashboard — Batch 14</span></div>
+  <div class="shot-body">
+    <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi"><b>42</b><span>Trainees</span></div>
+      <div class="kpi k-green"><b>86%</b><span>Avg. PKT</span></div>
+      <div class="kpi k-amber"><b>5</b><span>At risk</span></div>
+      <div class="kpi"><b>Day 9</b><span>of 15</span></div>
+    </div>
+    <div class="score-list">
+      <div class="sl"><span>Module 1</span><div class="track"><div class="fill" style="width:100%"></div></div><span>100%</span></div>
+      <div class="sl"><span>Module 2</span><div class="track"><div class="fill" style="width:93%"></div></div><span>93%</span></div>
+      <div class="sl"><span>Module 3</span><div class="track"><div class="fill a" style="width:58%"></div></div><span>58%</span></div>
+      <div class="sl"><span>Module 4</span><div class="track"><div class="fill a" style="width:12%"></div></div><span>12%</span></div>
+    </div>
+  </div>` },
+{ id:'email', title:'Email CRM — synced with live Gmail', short:'Gmail Email CRM',
+  tags:'<span class="tag gs">Apps Script</span><span class="tag gs">Gmail API</span>',
+  pitch:'Every incoming & outgoing mail auto-logged against the right contact — status pipeline, follow-up reminders, bulk templated replies. All in Sheets.',
+  hl:['Two-way sync with a live Gmail account','Auto-matches threads to contacts & deals','Pipeline: New → Replied → Follow-up → Closed','Scheduled triggers keep it fresh'],
+  impact:'💡 A working email CRM for ₹0 — no HubSpot needed',
+  shot:`<div class="shot-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">Email CRM — connected to Gmail</span></div>
+  <div class="shot-body">
+    <div class="kpis">
+      <div class="kpi k-green"><b>214</b><span>Threads synced</span></div>
+      <div class="kpi k-amber"><b>18</b><span>Awaiting reply</span></div>
+      <div class="kpi"><b>7</b><span>Follow-ups due</span></div>
+    </div>
+    <div class="sheet">
+      <div class="srow"><div>✉</div><div>Contact / Subject</div><div>Last sync</div><div>Owner</div><div>Status</div></div>
+      <div class="srow"><div>●</div><div>Amit V. — Pricing query</div><div>2 min ago</div><div>You</div><div><span class="pill ok">Replied</span></div></div>
+      <div class="srow"><div>●</div><div>Neha G. — Demo request</div><div>14 min</div><div>You</div><div><span class="pill run">Follow-up</span></div></div>
+      <div class="srow"><div>○</div><div>Vendor Co. — Invoice #482</div><div>1 hr</div><div>Rahul</div><div><span class="pill q">New</span></div></div>
+    </div>
+  </div>` }
+];
+
+/* ============ EXPLORER ============ */
+const rail = document.getElementById('rail');
+const stage = document.getElementById('stage');
+let cur = 0;
+
+P.forEach((p,i)=>{
+  const b = document.createElement('button');
+  b.innerHTML = `<span class="num">0${i+1}</span><span class="t">${p.short}</span>`;
+  b.addEventListener('click',()=>go(i));
+  rail.appendChild(b);
+});
+
+function render(i){
+  const p = P[i];
+  stage.innerHTML = `
+    <div class="tag-row">${p.tags}</div>
+    <h3>${p.title}</h3>
+    <p class="pitch">${p.pitch}</p>
+    <div class="stage-cols">
+      <div>
+        <ul class="hl">${p.hl.map(h=>`<li>${h}</li>`).join('')}</ul>
+        <div class="impact">${p.impact}</div>
+      </div>
+      <div class="shot">${p.shot}</div>
+    </div>
+    <div class="stage-nav">
+      <span class="count">0${i+1} / 0${P.length}</span>
+      <div class="arrows">
+        <button aria-label="Previous project" onclick="go(${(i-1+P.length)%P.length})">←</button>
+        <button aria-label="Next project" onclick="go(${(i+1)%P.length})">→</button>
+      </div>
+    </div>`;
+  [...rail.querySelectorAll('button')].forEach((b,bi)=>b.classList.toggle('active',bi===i));
+}
+function go(i){
+  if(i===cur && stage.innerHTML) return;
+  cur = i;
+  stage.classList.add('out');
+  setTimeout(()=>{
+    render(i);
+    stage.classList.remove('out');
+    stage.classList.add('in');
+    setTimeout(()=>stage.classList.remove('in'),500);
+  },220);
+}
+render(0);
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight') go((cur+1)%P.length);
+  if(e.key==='ArrowLeft') go((cur-1+P.length)%P.length);
+});
+
+/* ============ COUNT-UP STATS ============ */
+const counters = document.querySelectorAll('.count');
+const cio = new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return;
+  const el=e.target, to=+el.dataset.to, dur=1400, t0=performance.now();
+  (function tick(t){
+    const k=Math.min((t-t0)/dur,1), ease=1-Math.pow(1-k,3);
+    el.textContent = Math.round(to*ease).toLocaleString('en-IN');
+    if(k<1) requestAnimationFrame(tick);
+  })(t0);
+  cio.unobserve(el);
+}),{threshold:.6});
+counters.forEach(c=>cio.observe(c));
+
+/* ============ PIPELINE SEQUENCE ============ */
+const nodes=[...document.querySelectorAll('#pipeline .pnode')];
+const conns=[...document.querySelectorAll('#pipeline .pconn')];
+const cap=document.getElementById('pipeCaption');
+let step=0, pipeTimer=null;
+function pipeTick(){
+  nodes.forEach((n,i)=>n.classList.toggle('lit',i===step));
+  conns.forEach((c,i)=>{c.classList.remove('flow'); if(i===step && step<conns.length){void c.offsetWidth; c.classList.add('flow');}});
+  cap.style.opacity=0;
+  setTimeout(()=>{cap.innerHTML=nodes[step].dataset.cap; cap.style.opacity=1;},250);
+  step=(step+1)%nodes.length;
+}
+const pio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting && !pipeTimer){ pipeTick(); pipeTimer=setInterval(pipeTick,1800); }
+  else if(!e.isIntersecting && pipeTimer){ clearInterval(pipeTimer); pipeTimer=null; }
+}),{threshold:.3});
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches) pio.observe(document.getElementById('pipeline'));
+else { nodes.forEach(n=>n.classList.add('lit')); }
+
+/* ============ SCROLL REVEAL ============ */
+const rio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target);}
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
 </script>
 </body>
 </html>
